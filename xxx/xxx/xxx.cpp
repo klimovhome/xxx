@@ -3,14 +3,19 @@
 
 #include "stdafx.h"
 
+#include "sender.h"
+#include "receiver.h"
+
 
 int main( int argc, char** argv)
 {
-	// параметры
-	// отправка
-	// прием
+	// параметры argv[1]
+	// отправка send
+	// прием recv
 
-
+	if (argc != 3) {
+		return 0;
+	}
 
 
 

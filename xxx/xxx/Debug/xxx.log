@@ -1,3 +1,8 @@
 ﻿  xxx.cpp
+  stdafx.cpp
+  send_transport.cpp
+  sender.cpp
+  receiver.cpp
+  Создание кода...
   xxx.vcxproj -> E:\git\xxx\xxx\Debug\xxx.exe
   xxx.vcxproj -> E:\git\xxx\xxx\Debug\xxx.pdb (Full PDB)

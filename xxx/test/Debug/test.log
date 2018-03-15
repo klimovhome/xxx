@@ -1,0 +1,10 @@
+﻿  stdafx.cpp
+  receiver.cpp
+  sender.cpp
+  send_transport.cpp
+  AssemblyInfo.cpp
+  UnitTest.cpp
+  Создание кода...
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  test.vcxproj -> E:\git\xxx\xxx\Debug\DefaultTest.dll
+  test.vcxproj -> E:\git\xxx\xxx\Debug\DefaultTest.pdb (Full PDB)
