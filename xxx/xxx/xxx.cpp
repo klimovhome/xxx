@@ -4,8 +4,15 @@
 #include "stdafx.h"
 
 
-int main()
+int main( int argc, char** argv)
 {
+	// параметры
+	// отправка
+	// прием
+
+
+
+
 
     return 0;
 
