@@ -1,4 +1,8 @@
-﻿  unittest1.cpp
+﻿  stdafx.cpp
+  transport.cpp
+  send_transport.cpp
+  recv_transport.cpp
+  Generating Code...
      Creating library E:\git\xxx\xxx\Debug\test.lib and object E:\git\xxx\xxx\Debug\test.exp
   test.vcxproj -> E:\git\xxx\xxx\Debug\test.dll
   test.vcxproj -> E:\git\xxx\xxx\Debug\test.pdb (Partial PDB)

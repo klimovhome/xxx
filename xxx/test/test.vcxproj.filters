@@ -32,13 +32,13 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="unittest1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\xxx\recv_transport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\xxx\send_transport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="transport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

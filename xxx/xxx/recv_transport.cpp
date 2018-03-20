@@ -7,7 +7,30 @@ recv_transport::recv_transport() {
 
 
 void recv_transport::open() {
+
+	WSADATA wsa;
+	unsigned short usWSAVersion = MAKEWORD(2, 2);
+	//Start WSA
+	WSAStartup(usWSAVersion, &wsa);
+
 	_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	if (_socket == 0) {
+		throw std::exception("_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP); _socket == 0");
+	}
+
+	/*
+	timeval tv;
+	tv.tv_sec = 0;
+	tv.tv_usec = 1024;
+	// Set Timeout for recv call
+	if (setsockopt(_socket, SOL_SOCKET, SO_RCVTIMEO, reinterpret_cast<char*>(&tv), sizeof(timeval))) {
+		throw std::exception("int result = bind(_socket, (SOCKADDR*)&addr, sizeof(addr)) error");
+	}
+	*/
+	u_long nMode = 1; // 1: NON-BLOCKING
+	if (ioctlsocket(_socket, FIONBIO, &nMode) == SOCKET_ERROR) {
+		throw std::exception("ioctlsocket(_socket, FIONBIO, &nMode) == SOCKET_ERROR");
+	}
 
 	sockaddr_in addr;
 	memset(&addr, 0, sizeof(struct sockaddr_in));
@@ -18,7 +41,7 @@ void recv_transport::open() {
 	// first bind succeeds
 	int result = bind(_socket, (SOCKADDR*)&addr, sizeof(addr));
 	if (result < 0) {
-		//throw std::exception("int result = bind(_socket, (SOCKADDR*)&addr, sizeof(addr)) error");
+		throw std::exception("int result = bind(_socket, (SOCKADDR*)&addr, sizeof(addr)) error");
 	}
 }
 
@@ -36,6 +59,8 @@ void recv_transport::recv(std::vector<char> &data) {
 void recv_transport::close() {
 	closesocket(_socket);
 	_socket = 0;
+
+	WSACleanup();
 }
 
 

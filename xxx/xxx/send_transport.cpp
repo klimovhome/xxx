@@ -7,6 +7,11 @@ send_transport::send_transport() {
 }
 
 void send_transport::open() {
+	WSADATA wsa;
+	unsigned short usWSAVersion = MAKEWORD(2, 2);
+	//Start WSA
+	WSAStartup(usWSAVersion, &wsa);
+	
 	_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 }
 
@@ -23,16 +28,18 @@ void send_transport::send(const std::vector<char> &data) {
 
 	int result = ::sendto(_socket, data.data(), data.size(), 0, (SOCKADDR *)&addr, sizeof(addr));
 	if (result == SOCKET_ERROR) {
-		//throw std::exception("void send_transport::send(const std::vector<char> &data), result == SOCKET_ERROR");
+		throw std::exception("void send_transport::send(const std::vector<char> &data), result == SOCKET_ERROR");
 	}
 	if (result != data.size()) {
-		//throw std::exception("void send_transport::send(const std::vector<char> &data), result != data.size()");
+		throw std::exception("void send_transport::send(const std::vector<char> &data), result != data.size()");
 	}
 }
 
 void send_transport::close() {
 	closesocket(_socket);
 	_socket = 0;
+
+	WSACleanup( );
 }
 
 send_transport::~send_transport() {

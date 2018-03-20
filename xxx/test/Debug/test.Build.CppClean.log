@@ -2,7 +2,9 @@ e:\git\xxx\xxx\test\debug\test.pch
 e:\git\xxx\xxx\test\debug\vc140.pdb
 e:\git\xxx\xxx\test\debug\vc140.idb
 e:\git\xxx\xxx\test\debug\stdafx.obj
-e:\git\xxx\xxx\test\debug\unittest1.obj
+e:\git\xxx\xxx\test\debug\recv_transport.obj
+e:\git\xxx\xxx\test\debug\send_transport.obj
+e:\git\xxx\xxx\test\debug\transport.obj
 e:\git\xxx\xxx\debug\test.ilk
 e:\git\xxx\xxx\debug\test.dll
 e:\git\xxx\xxx\debug\test.pdb

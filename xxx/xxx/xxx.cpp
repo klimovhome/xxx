@@ -15,6 +15,7 @@
 //#pragma comment (lib, "AdvApi32.lib")
 
 #include "send_transport.h"
+#include "recv_transport.h"
 #include "sender.h"
 #include "receiver.h"
 
@@ -54,6 +55,16 @@ int main( int argc, char** argv)
 	}
 	// запускаем прием
 	if (strcmp(argv[1], "recv")) {
+		recv_transport tr;
+		tr.open();
+
+		//sender recv(&tr);
+
+		//recv.open();
+		//recv.send(data);
+		//recv.close();
+
+		tr.close();
 
 	}
 
