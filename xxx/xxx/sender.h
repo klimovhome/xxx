@@ -5,12 +5,12 @@ class send_transport;
 class sender
 {
 protected:
-	send_transport *_st;
+	const send_transport *_st;
 public:
-	sender(send_transport *st);
+	sender(const send_transport *st);
 
 	void open( );
-	void send(std::vector<char>& data);
+	void send(const std::vector<char>& data);
 	void close();
 
 	virtual ~sender();

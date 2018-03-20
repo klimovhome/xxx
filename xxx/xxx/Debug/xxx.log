@@ -1,8 +1,11 @@
-﻿  xxx.cpp
+﻿  receiver.cpp
+  Generating Code...
+  Compiling...
+  xxx.cpp
   stdafx.cpp
-  send_transport.cpp
   sender.cpp
-  receiver.cpp
-  Создание кода...
+  send_transport.cpp
+  recv_transport.cpp
+  Generating Code...
   xxx.vcxproj -> E:\git\xxx\xxx\Debug\xxx.exe
   xxx.vcxproj -> E:\git\xxx\xxx\Debug\xxx.pdb (Full PDB)

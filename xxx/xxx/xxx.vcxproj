@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="receiver.h" />
+    <ClInclude Include="recv_transport.h" />
     <ClInclude Include="sender.h" />
     <ClInclude Include="send_transport.h" />
     <ClInclude Include="stdafx.h" />
@@ -153,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="receiver.cpp" />
+    <ClCompile Include="recv_transport.cpp" />
     <ClCompile Include="sender.cpp" />
     <ClCompile Include="send_transport.cpp" />
     <ClCompile Include="stdafx.cpp" />
