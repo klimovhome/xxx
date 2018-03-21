@@ -16,6 +16,7 @@ void disassembler::push_data(const std::vector<char> &data) {
 
 	int count = 1 + data.size() / max_packet_size;
 	int packet_size = data.size() / count;
+	int crc = formater::crc(data);
 
 	for (int index = 0; index < count; index++) {
 		int begin = index * packet_size;
@@ -26,12 +27,14 @@ void disassembler::push_data(const std::vector<char> &data) {
 		hdr._prefix = header_prefix;
 		hdr._index = index;
 		hdr._count = count;
+		hdr._offset = begin;
 		hdr._len = end - begin;
-		hdr._crc = 0x012345678;
+		hdr._crc = crc;
+		hdr._data_len = data.size();
 
 		std::vector<char> packet;
 		packet.insert(packet.end(), ((char*)&hdr), ((char*)&hdr) + sizeof(hdr));
-		packet.insert(packet.end(), data.front() + begin, data.front() + end);
+		packet.insert(packet.end(), &data.front() + begin, &data.front() + end);
 		
 		_packet_list.push(packet);
 	}
@@ -40,6 +43,10 @@ void disassembler::push_data(const std::vector<char> &data) {
 }
 
 void disassembler::pop_packet(std::vector<char> &packet) {
+	if (_packet_list.empty()) {
+		packet.clear();
+		return;
+	}
 	packet = _packet_list.front();
 	_packet_list.pop();
 }

@@ -1,6 +1,3 @@
-﻿  disassembler.cpp
-  assembler.cpp
-  Generating Code...
-     Creating library C:\git\xxx\xxx\Debug\test.lib and object C:\git\xxx\xxx\Debug\test.exp
-  test.vcxproj -> C:\git\xxx\xxx\Debug\test.dll
-  test.vcxproj -> C:\git\xxx\xxx\Debug\test.pdb (Partial PDB)
+﻿  recv_transport.cpp
+  test.vcxproj -> E:\git\xxx\xxx\Debug\test.dll
+  test.vcxproj -> E:\git\xxx\xxx\Debug\test.pdb (Partial PDB)

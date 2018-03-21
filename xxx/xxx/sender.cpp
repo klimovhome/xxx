@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "sender.h"
 
+#include <chrono>
+#include <thread>
+
 #include "disassembler.h"
 
 sender::sender(const send_transport *st) {
@@ -29,11 +32,11 @@ void sender::send(const std::vector<char>& data) {
 	dis.pop_packet(packet);
 	while (packet.size() != 0) {
 		_st->send(packet);
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		dis.pop_packet(packet);
 	}
 	
 	dis.close();
-
 }
 
 void sender::close() {

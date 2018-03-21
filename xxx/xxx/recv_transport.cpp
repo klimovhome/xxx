@@ -52,7 +52,12 @@ void recv_transport::recv(std::vector<char> &data) {
 	int result = recvfrom(_socket, buffer, 1024, 0, (struct sockaddr *)&addr, &addrlen);
 
 	if (result > 0) {
-		data.insert(data.end(), buffer, buffer + result);
+		data.resize(result);
+		//data.insert(data.end(), buffer, buffer + result);
+		std::copy(buffer, buffer + result, data.begin());
+	}
+	else {
+		data.clear();
 	}
 }
 

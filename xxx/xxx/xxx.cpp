@@ -26,6 +26,15 @@ void readfile(const char *filename, std::vector<char> &data) {
 	data.insert(data.end(), std::istreambuf_iterator<char>(s), std::istreambuf_iterator<char>());
 }
 
+// записать данные в файл
+void writefile(const char *filename, std::vector<char> &data) {
+	std::ofstream s(filename, std::ios::binary);
+	// copies all data into buffer
+	//data.insert(data.end(), std::istreambuf_iterator<char>(s), std::istreambuf_iterator<char>());
+	std::copy(data.begin(), data.end(), std::ostreambuf_iterator<char>(s));
+}
+
+
 
 int main( int argc, char** argv)
 {
@@ -37,7 +46,7 @@ int main( int argc, char** argv)
 		return 0;
 	}
 	// запускаем отправку
-	if (strcmp(argv[1], "send")) {
+	if (strcmp(argv[1], "send") == 0) {
 
 		std::vector<char> data;
 		readfile(argv[2], data);
@@ -54,18 +63,22 @@ int main( int argc, char** argv)
 		tr.close();
 	}
 	// запускаем прием
-	if (strcmp(argv[1], "recv")) {
+	if (strcmp(argv[1], "recv") == 0) {
+
+		std::vector<char> data;
+
 		recv_transport tr;
 		tr.open();
 
-		//sender recv(&tr);
+		receiver recv(&tr);
 
-		//recv.open();
-		//recv.send(data);
-		//recv.close();
+		recv.open();
+		recv.recv(data);
+		recv.close();
 
 		tr.close();
 
+		writefile(argv[2], data);
 	}
 
 

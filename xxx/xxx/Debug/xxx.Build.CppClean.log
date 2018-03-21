@@ -1,5 +1,8 @@
 e:\git\xxx\xxx\xxx\debug\vc140.pdb
 e:\git\xxx\xxx\xxx\debug\vc140.idb
+e:\git\xxx\xxx\xxx\debug\assembler.obj
+e:\git\xxx\xxx\xxx\debug\disassembler.obj
+e:\git\xxx\xxx\xxx\debug\formater.obj
 e:\git\xxx\xxx\xxx\debug\receiver.obj
 e:\git\xxx\xxx\xxx\debug\recv_transport.obj
 e:\git\xxx\xxx\xxx\debug\sender.obj

@@ -5,6 +5,7 @@
 #include "..\xxx\send_transport.h"
 
 #include "..\xxx\disassembler.h"
+#include "..\xxx\assembler.h"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -62,9 +63,38 @@ namespace test
 			Assert::IsTrue(send_data == recv_data);
 		}
 
-		TEST_METHOD(Assembler)
+		TEST_METHOD(DasmAndAsm)
 		{
-			disassembler dis;
+			std::vector<char> packet;
+			std::vector<char> data;
+			std::vector<char> result;
+			int count = 1024;
+			char str[] = "This is test.";
+			for (int i = 0; i < count; i++) {
+				data.insert(data.end(), str, str+sizeof(str));
+			}
+			Assert::AreEqual(data.size(), sizeof(str)*count);
+
+
+			disassembler dasm;
+			assembler assm;
+
+			dasm.open();
+			assm.open();
+
+			dasm.push_data(data);
+
+			dasm.pop_packet(packet);
+			while (packet.size() != 0) {
+				assm.push_packet(packet);
+				dasm.pop_packet(packet);
+			}
+
+			assm.pop_data(result);
+			Assert::AreEqual(data.size(), result.size());
+			
+			assm.close();
+			dasm.close();
 
 
 		}
