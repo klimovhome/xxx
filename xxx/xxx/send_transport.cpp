@@ -15,12 +15,13 @@ void send_transport::open() {
 	_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 }
 
-void send_transport::send(const std::vector<char> &data) {
+void send_transport::send(const std::vector<char> &data) const {
 	sockaddr_in addr;
 	memset(&addr, 0, sizeof(struct sockaddr_in));
 	addr.sin_family = AF_INET;
 	addr.sin_port = htons(8080);
 	addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+	
 
 	if (data.size() == 0) {
 		return;

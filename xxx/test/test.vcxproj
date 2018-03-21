@@ -150,12 +150,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\xxx\assembler.h" />
+    <ClInclude Include="..\xxx\disassembler.h" />
+    <ClInclude Include="..\xxx\formater.h" />
     <ClInclude Include="..\xxx\recv_transport.h" />
     <ClInclude Include="..\xxx\send_transport.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\xxx\assembler.cpp" />
+    <ClCompile Include="..\xxx\disassembler.cpp" />
+    <ClCompile Include="..\xxx\formater.cpp" />
     <ClCompile Include="..\xxx\recv_transport.cpp" />
     <ClCompile Include="..\xxx\send_transport.cpp" />
     <ClCompile Include="stdafx.cpp">

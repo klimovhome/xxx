@@ -11,7 +11,7 @@ public:
 	send_transport();
 
 	void open();
-	void send(const std::vector<char> &data);
+	void send(const std::vector<char> &data) const;
 	void close();
 
 	virtual ~send_transport();

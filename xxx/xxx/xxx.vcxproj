@@ -145,6 +145,9 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="assembler.h" />
+    <ClInclude Include="disassembler.h" />
+    <ClInclude Include="formater.h" />
     <ClInclude Include="receiver.h" />
     <ClInclude Include="recv_transport.h" />
     <ClInclude Include="sender.h" />
@@ -153,6 +156,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="assembler.cpp" />
+    <ClCompile Include="disassembler.cpp" />
+    <ClCompile Include="formater.cpp" />
     <ClCompile Include="receiver.cpp" />
     <ClCompile Include="recv_transport.cpp" />
     <ClCompile Include="sender.cpp" />

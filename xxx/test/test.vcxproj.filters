@@ -27,6 +27,15 @@
     <ClInclude Include="..\xxx\send_transport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\xxx\assembler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\xxx\disassembler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\xxx\formater.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -39,6 +48,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="transport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\xxx\assembler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\xxx\disassembler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\xxx\formater.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

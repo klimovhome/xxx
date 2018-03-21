@@ -1,6 +1,6 @@
 #pragma once
 
-class send_transport;
+#include "send_transport.h"
 
 class sender
 {

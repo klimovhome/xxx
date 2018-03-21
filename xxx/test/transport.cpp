@@ -4,6 +4,8 @@
 #include "..\xxx\recv_transport.h"
 #include "..\xxx\send_transport.h"
 
+#include "..\xxx\disassembler.h"
+
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -24,8 +26,7 @@ namespace test
 			send_tr.send(send_data);
 			send_tr.close();
 		}
-
-
+		
 		TEST_METHOD(Recv)
 		{
 			recv_transport recv_tr;
@@ -37,9 +38,7 @@ namespace test
 			recv_tr.recv(recv_data);
 			recv_tr.close();
 		}
-
-
-
+		
 		TEST_METHOD(SendRecv)
 		{
 			recv_transport recv_tr;
@@ -61,6 +60,13 @@ namespace test
 
 			Assert::AreEqual(send_data.size(), recv_data.size());
 			Assert::IsTrue(send_data == recv_data);
+		}
+
+		TEST_METHOD(Assembler)
+		{
+			disassembler dis;
+
+
 		}
 
 	};

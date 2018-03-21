@@ -1,8 +1,6 @@
-﻿  stdafx.cpp
-  transport.cpp
-  send_transport.cpp
-  recv_transport.cpp
+﻿  disassembler.cpp
+  assembler.cpp
   Generating Code...
-     Creating library E:\git\xxx\xxx\Debug\test.lib and object E:\git\xxx\xxx\Debug\test.exp
-  test.vcxproj -> E:\git\xxx\xxx\Debug\test.dll
-  test.vcxproj -> E:\git\xxx\xxx\Debug\test.pdb (Partial PDB)
+     Creating library C:\git\xxx\xxx\Debug\test.lib and object C:\git\xxx\xxx\Debug\test.exp
+  test.vcxproj -> C:\git\xxx\xxx\Debug\test.dll
+  test.vcxproj -> C:\git\xxx\xxx\Debug\test.pdb (Partial PDB)
