@@ -14,13 +14,13 @@ void disassembler::push_data(const std::vector<char> &data) {
 		return;
 	}
 
-	int count = 1 + data.size() / max_packet_size;
-	int packet_size = data.size() / count;
+	int count = data.size() / max_packet_size;
+	if (data.size() % max_packet_size) count++;
 	int crc = formater::crc(data);
 
 	for (int index = 0; index < count; index++) {
-		int begin = index * packet_size;
-		int end = (index + 1) * packet_size;
+		int begin = index * max_packet_size;
+		int end = (index + 1) * max_packet_size;
 		if (end > (int)data.size()) end = (int)data.size();
 
 		header hdr;

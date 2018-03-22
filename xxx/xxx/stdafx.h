@@ -10,5 +10,6 @@
 #include <stdio.h>
 #include <tchar.h>
 #include <vector>
+//#include <cassert>
 
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы

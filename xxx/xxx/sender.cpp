@@ -7,9 +7,10 @@
 #include "disassembler.h"
 
 sender::sender(const send_transport *st) {
-	if (st == nullptr) {
-		throw("sender::sender(const send_transport *st) st == nullptr");
-	}
+	//std::assert
+	//assert(if (st == nullptr) {
+		//throw("sender::sender(const send_transport *st) st == nullptr");
+	//}
 
 	_st = st;
 }
