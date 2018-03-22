@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/xxx/Debug
+/xxx/test/Debug
+/xxx/xxx/Debug
+/xxx/.vs/xxx/v14
+/xxx/xxx.VC.VC.opendb

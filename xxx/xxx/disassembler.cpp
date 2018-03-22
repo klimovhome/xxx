@@ -5,7 +5,7 @@
 disassembler::disassembler() {
 }
 
-void disassembler::open() {
+void disassembler::open() { 
 
 }
 
