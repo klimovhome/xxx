@@ -7,11 +7,6 @@
 #include "disassembler.h"
 
 sender::sender(const send_transport *st) {
-	//std::assert
-	//assert(if (st == nullptr) {
-		//throw("sender::sender(const send_transport *st) st == nullptr");
-	//}
-
 	_st = st;
 }
 
@@ -33,7 +28,7 @@ void sender::send(const std::vector<char>& data) {
 	dis.pop_packet(packet);
 	while (packet.size() != 0) {
 		_st->send(packet);
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		std::this_thread::sleep_for(std::chrono::milliseconds(1));
 		dis.pop_packet(packet);
 	}
 	

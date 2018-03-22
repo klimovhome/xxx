@@ -1,13 +1,11 @@
 ﻿  stdafx.cpp
   transport.cpp
   send_transport.cpp
-c:\git\xxx\xxx\xxx\send_transport.cpp(23): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
-  c:\program files (x86)\windows kits\8.1\include\um\winsock2.h(1850): note: see declaration of 'inet_addr'
   recv_transport.cpp
   formater.cpp
   disassembler.cpp
   assembler.cpp
   Generating Code...
-     Creating library C:\git\xxx\xxx\Debug\test.lib and object C:\git\xxx\xxx\Debug\test.exp
-  test.vcxproj -> C:\git\xxx\xxx\Debug\test.dll
-  test.vcxproj -> C:\git\xxx\xxx\Debug\test.pdb (Partial PDB)
+     Creating library E:\git\xxx\xxx\Debug\test.lib and object E:\git\xxx\xxx\Debug\test.exp
+  test.vcxproj -> E:\git\xxx\xxx\Debug\test.dll
+  test.vcxproj -> E:\git\xxx\xxx\Debug\test.pdb (Partial PDB)

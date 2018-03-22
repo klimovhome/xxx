@@ -9,7 +9,7 @@ receiver::receiver(recv_transport *tr){
 
 
 void receiver::open() {
-
+	_tr = nullptr;
 }
 
 void receiver::recv(std::vector<char> &data) {
