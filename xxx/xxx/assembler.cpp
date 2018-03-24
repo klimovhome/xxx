@@ -14,29 +14,42 @@ void assembler::open() {
 
 void assembler::push_packet(const std::vector<char> &packet) {
 	if (packet.size() == 0) {
+		//printf("Error packet packet.size() == 0");
 		return;
 	}
 
+	if (packet.size() < sizeof(header) ) {
+		printf("Error packet packet.size() < sizeof(header)");
+		return;
+	}
+	
 	header *hdr = (header *)&packet.front();
-	if (hdr->_prefix != header_prefix) {
-		throw std::exception("void assembler::push_packet(const std::vector<char> &packet) header prefix error");
+	if (!hdr->validate()) {
+		printf("void assembler::push_packet !hdr->validate()");
+		return;
 	}
 
+	// first packet
 	if (_result.size() == 0) {
-		// first packet
+		_header = *hdr;
 		_result.resize(hdr->_data_len);
 	}
 
 	// copy to result
-	//std::copy(from_vector.begin(), from_vector.end(), to_vector.begin());
+	printf("\b index = %d count = %d", hdr->_index, hdr->_count);
 	std::copy(packet.cbegin() + sizeof(header), packet.cend(), _result.begin() + hdr->_offset);
 	_count++;
 
 	if (hdr->_index + 1 == hdr->_count) {
 		_complete = true;
 
-		if (_count != hdr->_count) {
+		if (_count != _header._count) {
 			printf("assembler: Recv not all data!");
+		}
+
+		int64_t crc = formater::crc(_result);
+		if (crc != _header._crc) {
+			printf("assembler: crc error!");
 		}
 	}
 

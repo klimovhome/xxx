@@ -16,7 +16,7 @@ void disassembler::push_data(const std::vector<char> &data) {
 
 	int count = data.size() / max_packet_size;
 	if (data.size() % max_packet_size) count++;
-	int crc = formater::crc(data);
+	int64_t crc = formater::crc(data);
 
 	for (int index = 0; index < count; index++) {
 		int begin = index * max_packet_size;
@@ -37,6 +37,8 @@ void disassembler::push_data(const std::vector<char> &data) {
 		packet.insert(packet.end(), &data.front() + begin, &data.front() + end);
 		
 		_packet_list.push(packet);
+
+		printf("\r index = %d count = %d", hdr._index, hdr._count);
 	}
 
 

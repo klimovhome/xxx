@@ -11,8 +11,10 @@ struct header {
 	int _count;  // all packet count
 	int _offset;	 // data offset 
 	int _len;    // len the packet
-	int _crc;    // crc of all data
+	int64_t _crc;    // crc of all data
 	int _data_len; // len of data
+
+	bool validate();
 };
 
 class formater
@@ -21,7 +23,7 @@ public:
 	formater();
 	virtual ~formater();
 
-	static int crc(const std::vector<char> &data);
+	static int64_t crc(const std::vector<char> &data);
 
 };
 

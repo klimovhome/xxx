@@ -9,7 +9,9 @@ class assembler
 protected:
 	std::vector<char> _result;
 	bool _complete;
+
 	int _count;
+	header _header;
 public:
 	assembler();
 
