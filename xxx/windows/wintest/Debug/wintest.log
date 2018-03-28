@@ -1,0 +1,15 @@
+﻿  test.cpp
+  stdafx.cpp
+  send_transport.cpp
+c:\git\xxx\xxx\src\send_transport.cpp(23): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\8.1\include\um\winsock2.h(1850): note: see declaration of 'inet_addr'
+  sender.cpp
+  recv_transport.cpp
+  receiver.cpp
+  formater.cpp
+  disassembler.cpp
+  assembler.cpp
+  gtest-all.cc
+  Generating Code...
+  wintest.vcxproj -> C:\git\xxx\xxx\windows\winxxx\Debug\wintest.exe
+  wintest.vcxproj -> C:\git\xxx\xxx\windows\winxxx\Debug\wintest.pdb (Full PDB)
