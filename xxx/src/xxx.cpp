@@ -1,6 +1,6 @@
 // xxx.cpp: определяет точку входа для консольного приложения.
 
-#include "stdafx.h"
+//#include "stdafx.h"
 
 #include <iterator>
 #include <algorithm>

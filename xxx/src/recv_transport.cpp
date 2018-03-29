@@ -1,4 +1,4 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "recv_transport.h"
 
 recv_transport::recv_transport() {

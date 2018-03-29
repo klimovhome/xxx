@@ -1,5 +1,5 @@
-﻿  test.cpp
-  stdafx.cpp
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'c:\git\xxx\xxx\windows\wintest\debug\gtest-all.obj' because it is being used by another process.
+  test.cpp
   send_transport.cpp
 c:\git\xxx\xxx\src\send_transport.cpp(23): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
   c:\program files (x86)\windows kits\8.1\include\um\winsock2.h(1850): note: see declaration of 'inet_addr'

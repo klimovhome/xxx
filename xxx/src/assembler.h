@@ -1,8 +1,8 @@
 #pragma once
 
-#include "formater.h"
-
 #include <vector>
+
+#include "formater.h"
 
 class assembler
 {
