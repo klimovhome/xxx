@@ -6,6 +6,6 @@ project (${PROJECT})
  
 set (HEADERS )
  
-set (SOURCES ../src/xxx.cpp) 
+set (SOURCES ../src/socketest.cpp) 
  
 add_executable (${PROJECT} ${HEADERS} ${SOURCES})
