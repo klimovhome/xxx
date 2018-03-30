@@ -130,12 +130,14 @@ void send_transport_linux::send(const std::vector<char> &data) const {
 
 	char packet[2048] = {};
 	memcpy(packet, &ethernet_header, sizeof(ethernet_header));
-	memcpy(packet + sizeof(ethernet_header), (void*)data.front(), data.size() );
+	memcpy(packet + sizeof(ethernet_header), (void*)&data.front(), data.size() );
 
 	//write packet to socket
+	printf("write packet...\n");
 	if (write(_socket, packet, data.size() + sizeof(ethernet_header)) == -1) {
 		printf("Error writing bytes to the socket! \n");
 	}
+	printf("write ok\n");
 }
 
 void send_transport_linux::close() {
