@@ -1,6 +1,6 @@
 //#include "stdafx.h"
 #include "assembler.h"
-
+#include <stdio.h>
 
 assembler::assembler(){
 	_complete = false;
@@ -47,7 +47,7 @@ void assembler::push_packet(const std::vector<char> &packet) {
 			printf("assembler: Recv not all data!");
 		}
 
-		int64_t crc = formater::crc(_result);
+		long long crc = formater::crc(_result);
 		if (crc != _header._crc) {
 			printf("assembler: crc error!");
 		}

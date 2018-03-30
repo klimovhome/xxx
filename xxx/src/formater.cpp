@@ -31,10 +31,10 @@ formater::formater()
 {
 }
 
-int64_t formater::crc(const std::vector<char> &data) {
-	int64_t crc = 0;
-	int64_t *ptr = (int64_t*)&data.front();
-	for (size_t i = 0; i < data.size()/sizeof(int64_t); i++) {
+long long formater::crc(const std::vector<char> &data) {
+	long long crc = 0;
+	long long *ptr = (long long*)&data.front();
+	for (size_t i = 0; i < data.size()/sizeof(long long); i++) {
 		crc = crc ^ ptr[i];
 	}
 	return crc;

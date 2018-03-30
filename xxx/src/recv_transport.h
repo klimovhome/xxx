@@ -34,7 +34,7 @@ typedef recv_transport_windows recv_transport;
 class recv_transport_linux 
 {
 protected:
-	int _socket = 0;
+	int _socket;// = 0;
 public:
 	recv_transport_linux();
 

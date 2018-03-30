@@ -31,7 +31,7 @@ typedef send_transport_windows send_transport;
 class send_transport_linux
 {
 protected:
-	int _socket = 0;
+	int _socket;// = 0;
 public:
 	send_transport_linux();
 

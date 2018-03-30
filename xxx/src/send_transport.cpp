@@ -1,6 +1,10 @@
 //#include "stdafx.h"
 #include "send_transport.h"
 
+#include <string.h>
+#include <stdio.h>
+
+
 #ifdef __XXX_WINDOWS__
 send_transport_windows::send_transport_windows() {
 
@@ -53,6 +57,18 @@ send_transport_windows::~send_transport_windows() {
 
 
 #ifdef __XXX_LINUX__
+
+#include <sys/socket.h>
+#include <sys/ioctl.h>
+#include <linux/if_packet.h>
+#include <linux/if_ether.h>
+//#include <linux/if_arp.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <netinet/ether.h>
+#include <netinet/in.h>
+#include <netinet/ether.h>
+#include <net/if.h>
 	
 send_transport_linux::send_transport_linux() {
 	_socket = 0;
@@ -66,7 +82,7 @@ void send_transport_linux::open() {
 	//format socket(int socket_family, int socket_type, int protocol);
 	if (_socket == -1) {
 		printf("Error creating raw socket ");
-		throw std::exception("void recv_transport_linux::open(),Error creating raw socket");
+		//throw std::exception("void recv_transport_linux::open(),Error creating raw socket");
 	}
 	// end of setting up socket
 
@@ -81,7 +97,7 @@ void send_transport_linux::open() {
 	strncpy((char *)ifr.ifr_name, eth, IFNAMSIZ);
 	if ((ioctl(_socket, SIOCGIFINDEX, &ifr)) == -1) {
 		printf("Error getting Interface index !\n");
-		throw std::exception("void recv_transport_linux::open(),Error getting Interface index");
+		//throw std::exception("void recv_transport_linux::open(),Error getting Interface index");
 	}
 	printf("interface %s index is %d\n", eth, ifr.ifr_ifindex);
 
@@ -93,7 +109,7 @@ void send_transport_linux::open() {
 	if ((bind(_socket, (struct sockaddr *)&sll, sizeof(sll))) == -1)
 	{
 		printf("Error binding raw socket to interface\n");
-		throw std::exception("void recv_transport_linux::open(),Error binding raw socket to interface");
+		//throw std::exception("void recv_transport_linux::open(),Error binding raw socket to interface");
 	}
 
 }
@@ -114,7 +130,7 @@ void send_transport_linux::send(const std::vector<char> &data) const {
 
 	char packet[2048] = {};
 	memcpy(packet, &ethernet_header, sizeof(ethernet_header));
-	memcpy(packet + sizeof(ethernet_header), data.front(), data.size() );
+	memcpy(packet + sizeof(ethernet_header), (void*)data.front(), data.size() );
 
 	//write packet to socket
 	if (write(_socket, packet, data.size() + sizeof(ethernet_header)) == -1) {
@@ -124,7 +140,7 @@ void send_transport_linux::send(const std::vector<char> &data) const {
 
 void send_transport_linux::close() {
 	//close the socket
-	if (close(_socket) == -1)
+	if (::close(_socket) == -1)
 	{
 		printf("Error closing the socket! \n");
 	}

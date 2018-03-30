@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <cstddef>
 
 #define max_packet_size 256
 #define header_prefix 0x0ABCDEF0
@@ -11,7 +12,7 @@ struct header {
 	int _count;  // all packet count
 	int _offset;	 // data offset 
 	int _len;    // len the packet
-	int64_t _crc;    // crc of all data
+	long long _crc;    // crc of all data
 	int _data_len; // len of data
 
 	bool validate();
@@ -23,7 +24,7 @@ public:
 	formater();
 	virtual ~formater();
 
-	static int64_t crc(const std::vector<char> &data);
+	static long long crc(const std::vector<char> &data);
 
 };
 

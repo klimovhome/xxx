@@ -12,6 +12,8 @@
 #include <iostream>
 #include <fstream>
 
+#include <string.h>
+
 #include "send_transport.h"
 #include "recv_transport.h"
 #include "sender.h"

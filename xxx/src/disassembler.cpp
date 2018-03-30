@@ -1,5 +1,6 @@
 //#include "stdafx.h"
 #include "disassembler.h"
+#include <stdio.h>
 
 
 disassembler::disassembler() {
@@ -16,7 +17,7 @@ void disassembler::push_data(const std::vector<char> &data) {
 
 	int count = data.size() / max_packet_size;
 	if (data.size() % max_packet_size) count++;
-	int64_t crc = formater::crc(data);
+	long long crc = formater::crc(data);
 
 	for (int index = 0; index < count; index++) {
 		int begin = index * max_packet_size;
