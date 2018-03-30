@@ -2,6 +2,9 @@
 
 //#include "stdafx.h"
 
+//#define _XXX_LINUX_
+//#define _XXX_WINDOWS_
+
 #include <iterator>
 #include <algorithm>
 #include <vector>
@@ -63,7 +66,14 @@ int main_recv(int argc, char** argv) {
 
 	std::vector<char> data;
 
-	recv_transport tr;
+#ifdef __XXX_WINDOWS__  
+	recv_transport_windows tr;
+#endif // __XXX_WINDOWS__
+
+#ifdef __XXX_LINUX__
+	recv_transport_linux tr;
+#endif //__XXX_LINUX__
+
 	tr.open();
 
 	receiver recv(&tr);
